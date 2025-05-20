@@ -1,0 +1,11 @@
+
+*.bak
+*.html
+*.log
+*.o
+*.ppu
+*.txt
+
+chessboard
+chessboard.exe
+chessboard.dbg
