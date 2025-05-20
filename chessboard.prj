@@ -17,8 +17,8 @@ order14=0
 order15=0
 order16=0
 [projectoptions]
-projectdir=/home/roland/Documents/pascal/msegui/projects/chessboard/2002042322a
-projectfilename=/home/roland/Documents/pascal/msegui/projects/chessboard/2002042322a/chessboard.prj
+projectdir=/home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2
+projectfilename=/home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/chessboard.prj
 finddialog=8
  [finddialogfo.selectedonly]
  value=0
@@ -162,19 +162,20 @@ options=133
  y=87
  cx=832
  cy=581
-imagelisteditor=43
+imagelisteditor=44
  [imagelisteditorfo.statfile1]
- currentversion=0
+ currentversion=1
  [imagelisteditorfo.filedialog]
  filenames=1
-  /home/roland/Documents/pascal/echecs/eschecs-202002111557/images/pieces/montreal/50/bk.png
+  /home/roland/Documents/pascal/echecs/eschecs-2501110808/images/pieces/montreal/50/bn.png
  filecolwidth=174
  x=0
  y=0
  cx=0
  cy=0
- lastdir=/home/roland/Documents/pascal/echecs/eschecs-202002111557/images/pieces/montreal/50/
- filehistory=17
+ lastdir=/home/roland/Documents/pascal/echecs/eschecs-2501110808/images/pieces/montreal/50/
+ filehistory=18
+  /home/roland/Documents/pascal/echecs/eschecs-2501110808/images/pieces/montreal/50/bn.png
   /home/roland/Documents/pascal/echecs/eschecs-202002111557/images/pieces/montreal/50/bk.png
   /home/roland/Documents/pascal/echecs/eschecs-202002111557/images/pieces/montreal/50/bq.png
   /home/roland/Documents/pascal/echecs/eschecs-202002111557/images/pieces/montreal/50/br.png
@@ -585,7 +586,7 @@ modulenames=1
 moduletypes=1
  TMAINFO
 modulefiles=1
- /home/roland/Documents/pascal/msegui/projects/chessboard/2002042322a/main.mfm
+ /home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/main.mfm
 macrogroup=0
 forcezorder=0
 stripmessageesc=0
@@ -671,11 +672,11 @@ findhistory=2
 findoptions=1
 editpos=2
  23,352
- 0,506
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 sourcefiles=2
- /home/roland/Documents/pascal/msegui/projects/chessboard/2002042322a/main.pas
+ /home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/main.pas
  /home/roland/Applications/mseide-maint-2505080610/lib/common/graphics/msebitmap.pas
 relpaths=2
  main.pas
@@ -684,7 +685,7 @@ ismoduletexts=2
  0
  0
 modules=1
- /home/roland/Documents/pascal/msegui/projects/chessboard/2002042322a/main.mfm
+ /home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/main.mfm
 moduleoptions=1
  0
 visiblemodules=1
@@ -950,7 +951,7 @@ windowlayout=568
  [objectinspectorfo]
  splitdir=0
  useroptions=268451947
- stackedunder=mainfo.panel1
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -967,10 +968,10 @@ windowlayout=568
  active=0
  visible=1
  [objectinspectorfo.grid]
- propcolwidthref=353
- width0=130
+ propcolwidthref=368
+ width0=136
  sortdescend0=0
- width1=217
+ width1=226
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1071,7 +1072,7 @@ windowlayout=568
  [componentstorefo]
  splitdir=0
  useroptions=268460155
- stackedunder=mainfo
+ stackedunder=mainfo.panel1
  parent=
  mdistate=0
  nx=0
@@ -1134,7 +1135,7 @@ windowlayout=568
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -1211,7 +1212,7 @@ windowlayout=568
  [mainfo.panel1]
  splitdir=2
  useroptions=302022123
- stackedunder=
+ stackedunder=mainfo
  parent=
  mdistate=0
  nx=0
@@ -1225,7 +1226,7 @@ windowlayout=568
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
  [mainfo.panel2]
  splitdir=2
@@ -1249,7 +1250,7 @@ windowlayout=568
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -1263,7 +1264,7 @@ windowlayout=568
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
 [targetconsole]
 finddtext=
