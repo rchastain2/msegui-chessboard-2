@@ -423,10 +423,10 @@ end;
 
 procedure tmainfo.boardpaintev(const sender: twidget; const acanvas: tcanvas);
 begin
-  if fboard.dragpiece.piece <> pk_none then
-  begin
+  //if fboard.dragpiece.piece <> pk_none then
+  //begin
     drawcell(acanvas, dragrect().pos, fboard.dragpiece);
-  end;
+  //end;
 end;
 
 procedure tmainfo.exitev(const sender: TObject);
