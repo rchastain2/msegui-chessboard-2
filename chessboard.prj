@@ -68,7 +68,7 @@ options=133
  sorted=0
  col=-1073741823
  row=-1073741823
- rowheight=15
+ rowheight=17
  [projectoptionsfo.newfile]
  firsttab=0
  index=0
@@ -90,9 +90,9 @@ options=133
  sortdescend6=0
  [projectoptionsfo.macrosplitter]
  x=0
- y=121
+ y=120
  xprop=1
- yprop=0.23308270676692
+ yprop=0.23295454545455
  [projectoptionsfo.macrogrid]
  propcolwidthref=606
  sortdescend0=0
@@ -162,6 +162,21 @@ options=133
  y=87
  cx=832
  cy=581
+settings=14
+ [settingsfo.macrogrid]
+ propcolwidthref=302
+ width0=151
+ sortdescend0=0
+ width1=144
+ sortdescend1=0
+ [settingsfo]
+ x=100
+ y=106
+ cx=348
+ cy=570
+ wsize=0
+ active=1
+ visible=1
 imagelisteditor=44
  [imagelisteditorfo.statfile1]
  currentversion=1
@@ -318,10 +333,9 @@ mainfile=${PROJECTNAME}.pas
 targetfile=${PROJECTNAME}${EXEEXT}
 makecommand=${COMPILER}
 makedir=
-unitdirs=5
+unitdirs=4
  ./library/chess
  ./library
- ${MSEDIR}lib/addon/*/
  ${MSELIBDIR}kernel/$TARGETOSDIR/
  ${MSELIBDIR}*/
 unitpref=-Fu
@@ -352,10 +366,9 @@ makeoptionson=5
  28
  32
 aftcommandon=0
-unitdirson=5
+unitdirson=4
  983103
  983103
- 196671
  65599
  65599
 uid=0
@@ -555,7 +568,7 @@ newinheritedforms=12
  0
  0
  0
- 255
+ 1
 toolmenus=0
 toolfiles=0
 toolparams=0
@@ -671,7 +684,7 @@ findhistory=2
  pieceimage
 findoptions=1
 editpos=1
- 78,424
+ 54,412
 bookmarks0=0
 sourcefiles=1
  /home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/main.pas
@@ -946,7 +959,7 @@ windowlayout=568
  [objectinspectorfo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=componentpalettefo
  parent=
  mdistate=0
  nx=0
@@ -1067,7 +1080,7 @@ windowlayout=568
  [componentstorefo]
  splitdir=0
  useroptions=268460155
- stackedunder=componentpalettefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -1226,7 +1239,7 @@ windowlayout=568
  [mainfo.panel2]
  splitdir=2
  useroptions=302022123
- stackedunder=objectinspectorfo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
