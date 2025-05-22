@@ -309,6 +309,8 @@ end;
 
 procedure tmainfo.drawcell(const acanvas: tcanvas; const apos: pointty; const acelldata: celldataty);
 begin
+  tlog.append(Format('INFO [tmainfo.drawcell] x=%d y=%d ord(piece)=%d ord(color)=%d', [apos.x, apos.y, ord(acelldata.piece), ord(acelldata.color)]));
+  
   with acelldata do
   begin
     if cs_dragsource in state then
@@ -349,7 +351,6 @@ begin
       acanvas.fillrect(mr(0, 0, cellwidth, cellheight), cl_ltgray);
     end;
     *)
-    TLog.Append(Format('tmainfo.drawcell x=%d y=%d ord(piece)=%d ord(color)=%d', [apos.x, apos.y, ord(piece), ord(color)]));
     pieceimages2.paint(acanvas, ord(piece) - 1, apos, cl_default, cl_default, cl_default, ord(color));
   end;
 end;
@@ -423,10 +424,13 @@ end;
 
 procedure tmainfo.boardpaintev(const sender: twidget; const acanvas: tcanvas);
 begin
-  //if fboard.dragpiece.piece <> pk_none then
-  //begin
+  if isnullrect(dragrect()) then
+  begin
+    tlog.append('ERROR [tmainfo.boardpaintev] dragrect() = nullrect');
+  end else
+  begin
     drawcell(acanvas, dragrect().pos, fboard.dragpiece);
-  //end;
+  end;
 end;
 
 procedure tmainfo.exitev(const sender: TObject);

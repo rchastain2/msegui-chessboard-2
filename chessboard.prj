@@ -670,19 +670,14 @@ findhistory=2
  dragpiece
  pieceimage
 findoptions=1
-editpos=2
- 23,352
- 0,-1073741823
+editpos=1
+ 78,424
 bookmarks0=0
-bookmarks1=0
-sourcefiles=2
+sourcefiles=1
  /home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/main.pas
- /home/roland/Applications/mseide-maint-2505080610/lib/common/graphics/msebitmap.pas
-relpaths=2
+relpaths=1
  main.pas
- ../../../../../../Applications/mseide-maint-2505080610/lib/common/graphics/msebitmap.pas
-ismoduletexts=2
- 0
+ismoduletexts=1
  0
 modules=1
  /home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/main.mfm
@@ -731,7 +726,7 @@ windowlayout=568
  [mainfo]
  splitdir=0
  useroptions=301990011
- stackedunder=mainfo.panel2
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -745,7 +740,7 @@ windowlayout=568
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
  [targetconsolefo]
  splitdir=0
@@ -1072,7 +1067,7 @@ windowlayout=568
  [componentstorefo]
  splitdir=0
  useroptions=268460155
- stackedunder=mainfo.panel1
+ stackedunder=componentpalettefo
  parent=
  mdistate=0
  nx=0
@@ -1135,7 +1130,7 @@ windowlayout=568
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=objectinspectorfo
+ stackedunder=mainfo.panel2
  parent=
  mdistate=0
  nx=0
@@ -1231,7 +1226,7 @@ windowlayout=568
  [mainfo.panel2]
  splitdir=2
  useroptions=302022123
- stackedunder=componentpalettefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=0
  nx=0
@@ -1250,7 +1245,7 @@ windowlayout=568
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=
+ stackedunder=mainfo.panel1
  parent=
  mdistate=3
  nx=0
@@ -1264,7 +1259,7 @@ windowlayout=568
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
 [targetconsole]
 finddtext=
