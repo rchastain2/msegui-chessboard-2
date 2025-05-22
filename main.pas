@@ -35,7 +35,7 @@ type
   piecekindty = (pk_none, pk_pawn, pk_knight, pk_bishop, pk_rook, pk_queen, pk_king);
   piececolorty = (pc_white, pc_black);
 
-  cellstatety = (cs_black, cs_dragsource, cs_reject, cs_accept);
+  cellstatety = (cs_white, cs_black, cs_dragsource, cs_reject, cs_accept);
   cellstatesty = set of cellstatety;
 
   colty = (col_a, col_b, col_c, col_d, col_e, col_f, col_g, col_h);
@@ -169,7 +169,7 @@ begin
     board.cells[dest.col, dest.row].state := state1; //restore
     board.cells[source.col, source.row].piece := pk_none;
     rules.DoMove(source.col, source.row, dest.col, dest.row);
-    mainfo.gamestatedisp.Text := rules.ArbitratorMessage(); (* Roland *)
+    mainfo.gamestatedisp.text := rules.ArbitratorMessage(); (* Roland *)
   end;
 end;
 
@@ -253,6 +253,9 @@ begin
         if odd(ord(r1)) then
         begin
           fboard.cells[c1, r1].state := [cs_black];
+        end else
+        begin
+          fboard.cells[c1, r1].state := [cs_white];
         end;
       end;
     end else
@@ -262,6 +265,9 @@ begin
         if not odd(ord(r1)) then
         begin
           fboard.cells[c1, r1].state := [cs_black];
+        end else
+        begin
+          fboard.cells[c1, r1].state := [cs_white];
         end;
       end;
     end;
@@ -279,7 +285,7 @@ end;
 procedure tmainfo.boardchanged();
 begin
   grid.invalidate();
-  mainfo.gamestatedisp.Text := rules.ArbitratorMessage(); (* Roland *)
+  mainfo.gamestatedisp.text := rules.ArbitratorMessage(); (* Roland *)
 end;
 
 procedure tmainfo.invalidateboardcell(const acell: cellty);
@@ -295,8 +301,7 @@ begin
     result.y := fboard.dragpos.y - cellheight div 2;
     result.cx := cellwidth;
     result.cy := cellheight;
-  end
-  else
+  end else
   begin
     result := nullrect;
   end;
@@ -309,21 +314,20 @@ end;
 
 procedure tmainfo.drawcell(const acanvas: tcanvas; const apos: pointty; const acelldata: celldataty);
 begin
-  tlog.append(Format('INFO [tmainfo.drawcell] x=%d y=%d ord(piece)=%d ord(color)=%d', [apos.x, apos.y, ord(acelldata.piece), ord(acelldata.color)]));
-  
+  (*
+  tlog.append(Format('INFO [tmainfo.drawcell] x=%0.3d y=%0.3d ord(piece)=%d ord(color)=%d', [apos.x, apos.y, ord(acelldata.piece), ord(acelldata.color)]));
+  *)
   with acelldata do
   begin
     if cs_dragsource in state then
     begin
       acanvas.fillrect(mr(0, 0, cellwidth, cellheight), cl_ltyellow);
-    end
-    else
+    end else
     begin
       if cs_reject in state then
       begin
         acanvas.fillrect(mr(0, 0, cellwidth, cellheight), cl_ltred);
-      end
-      else
+      end else
       begin
         if cs_accept in state then
         begin
@@ -333,12 +337,15 @@ begin
           begin
             //cellimages.paint(acanvas, 1, apos);
             acanvas.fillrect(mr(0, 0, cellwidth, cellheight), cl_gray);
-          end
-          else
-          begin
-            //cellimages.paint(acanvas, 0, apos);
-            acanvas.fillrect(mr(0, 0, cellwidth, cellheight), cl_ltgray);
-          end;
+          end else
+            if cs_white in state then
+            begin
+              //cellimages.paint(acanvas, 0, apos);
+              acanvas.fillrect(mr(0, 0, cellwidth, cellheight), cl_ltgray);
+            end else
+            begin
+              tlog.append('ERROR [tmainfo.drawcell] acelldata.state = []');
+            end;
       end;
     end;
     (*
@@ -426,7 +433,7 @@ procedure tmainfo.boardpaintev(const sender: twidget; const acanvas: tcanvas);
 begin
   if isnullrect(dragrect()) then
   begin
-    tlog.append('ERROR [tmainfo.boardpaintev] dragrect() = nullrect');
+    tlog.append('ERROR [tmainfo.boardpaintev] isnullrect(dragrect()) = TRUE');
   end else
   begin
     drawcell(acanvas, dragrect().pos, fboard.dragpiece);
