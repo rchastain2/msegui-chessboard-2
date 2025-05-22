@@ -1,13 +1,33 @@
 
+MSELIBDIR := mseide-msegui/lib/common
+
+ifeq ($(OS),Windows_NT)
+OS := windows
+else
+OS := linux
+endif
+
+PC = fpc
+
+PFLAGS := -Mobjfpc -Sh
+PFLAGS += -Fu$(MSELIBDIR)/*
+PFLAGS += -Fu$(MSELIBDIR)/kernel/$(OS)
+PFLAGS += -Fulibrary
+PFLAGS += -Fulibrary/chess
+
 SOURCES := $(wildcard *.pas)
 
-MSELIBDIR := /home/roland/Applications/mseide-maint-2505080610/lib/common
+ifeq ($(OS),Windows_NT)
+TARGET := chessboard.exe
+else
+TARGET := chessboard
+endif
 
-OPT := -Mobjfpc -Sh
-OPT += -Fu$(MSELIBDIR)/*
-OPT += -Fu$(MSELIBDIR)/kernel/linux
-OPT += -Fulibrary
-OPT += -Fulibrary/chess
+$(TARGET): chessboard.pas $(SOURCES)
+	@$(PC) $(PFLAGS) $<
 
-chessboard: chessboard.pas $(SOURCES)
-	@fpc $(OPT) $<
+clean:
+	@rm -fv *.bak *.bak? *.log *.o *.ppu *.sta
+
+distclean: clean
+	@rm -fv chessboard chessboard.dbg chessboard.exe
