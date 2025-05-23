@@ -1,0 +1,3 @@
+[submodule "mseide-msegui"]
+	path = mseide-msegui
+	url = https://github.com/mse-org/mseide-msegui
