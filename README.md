@@ -6,4 +6,4 @@ Now the program knows legal chess moves and game state (check, checkmate, stalem
 
 ## Screenshot
 
-![alt text](https://raw.githubusercontent.com/rchastain/msegui-chessboard/main/screenshots/montreal.png)
+![alt text](https://raw.githubusercontent.com/rchastain/msegui-chessboard-2/refs/heads/main/images/screenshots/montreal.png)
