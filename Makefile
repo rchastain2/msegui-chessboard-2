@@ -16,18 +16,19 @@ PFLAGS += -Fulibrary
 PFLAGS += -Fulibrary/chess
 
 SOURCES := $(wildcard *.pas)
+PROJECT := chessboard
 
 ifeq ($(OS),Windows_NT)
-TARGET := chessboard.exe
+TARGET := $(PROJECT).exe
 else
-TARGET := chessboard
+TARGET := $(PROJECT)
 endif
 
-$(TARGET): chessboard.pas $(SOURCES)
+$(TARGET): $(PROJECT).pas $(SOURCES)
 	@$(PC) $(PFLAGS) $<
 
 clean:
-	@rm -fv *.bak *.bak? *.log *.o *.ppu *.sta
+	@rm -fv *.bak *.bak? *.log *.o *.ppu
 
 distclean: clean
-	@rm -fv chessboard chessboard.dbg chessboard.exe
+	@rm -fv *.sta $(PROJECT) $(PROJECT).dbg $(PROJECT).exe
