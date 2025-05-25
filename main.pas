@@ -278,8 +278,15 @@ begin
 end;
 
 procedure tmainfo.createev(const sender: TObject);
+var
+  lmenuheight: integer;
+  lpos: pointty;
 begin
   initboard();
+  
+  lpos := grid.paintparentpos;
+  lmenuheight := lpos.y;
+  tlog.append(Format('INFO [tmainfo.createev] lmenuheight=%d', [lmenuheight]));
 end;
 
 procedure tmainfo.boardchanged();
@@ -344,7 +351,7 @@ begin
               acanvas.fillrect(mr(0, 0, cellwidth, cellheight), cl_ltgray);
             end else
             begin
-              tlog.append('ERROR [tmainfo.drawcell] acelldata.state = []');
+              tlog.append('WARNING [tmainfo.drawcell] acelldata.state = []');
             end;
       end;
     end;
@@ -433,7 +440,7 @@ procedure tmainfo.boardpaintev(const sender: twidget; const acanvas: tcanvas);
 begin
   if isnullrect(dragrect()) then
   begin
-    tlog.append('ERROR [tmainfo.boardpaintev] isnullrect(dragrect()) = TRUE');
+    tlog.append('WARNING [tmainfo.boardpaintev] isnullrect(dragrect()) = TRUE');
   end else
   begin
     drawcell(acanvas, dragrect().pos, fboard.dragpiece);

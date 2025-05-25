@@ -1,8 +1,8 @@
 object mainfo: tmainfo
   bounds_x = 67
   bounds_y = 150
-  bounds_cx = 527
-  bounds_cy = 531
+  bounds_cx = 478
+  bounds_cy = 543
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.fade_direction = gd_left
@@ -11,8 +11,8 @@ object mainfo: tmainfo
   container.bounds = (
     0
     27
-    527
-    504
+    478
+    516
   )
   mainmenu = tmainmenu1
   statfile = tstatfile1
@@ -25,8 +25,8 @@ object mainfo: tmainfo
     frame.localprops = []
     frame.localprops1 = []
     onpaint = boardpaintev
-    bounds_x = 8
-    bounds_y = 8
+    bounds_x = 16
+    bounds_y = 16
     bounds_cx = 446
     bounds_cy = 448
     datacols.count = 8
@@ -194,8 +194,8 @@ object mainfo: tmainfo
     frame.localprops = []
     frame.localprops1 = []
     taborder = 1
-    bounds_x = 8
-    bounds_y = 460
+    bounds_x = 16
+    bounds_y = 480
     bounds_cx = 446
     bounds_cy = 19
     reffontheight = 15
@@ -206,8 +206,8 @@ object mainfo: tmainfo
     height = 40
     transparentcolor = -2147483647
     count = 6
-    left = 40
-    top = 112
+    left = 64
+    top = 144
     image = {
       00000000020000007800000078000000681F0000000000000000000000000000
       0000000000000000000000000000000000000000701919FF7019199AFFFFFF04
@@ -838,8 +838,8 @@ object mainfo: tmainfo
         state = [as_localcaption, as_localonexecute]
         onexecute = resetev
       end>
-    left = 40
-    top = 72
+    left = 64
+    top = 104
   end
   object concave: tfacecomp
     template.fade_pos.count = 2
@@ -852,13 +852,13 @@ object mainfo: tmainfo
       -1610612732
       -1610612731
     )
-    left = 40
-    top = 176
+    left = 64
+    top = 184
   end
   object tstatfile1: tstatfile
     filename = 'status.sta'
-    left = 40
-    top = 40
+    left = 64
+    top = 64
   end
   object mainmenuframe: tframecomp
     template.levelo = -1
@@ -867,8 +867,8 @@ object mainfo: tmainfo
     template.framei_top = 1
     template.framei_right = 1
     template.framei_bottom = 1
-    left = 136
-    top = 72
+    left = 64
+    top = 264
   end
   object menuitemframe: tframecomp
     template.levelo = -1
@@ -876,8 +876,8 @@ object mainfo: tmainfo
     template.framei_left = 1
     template.framei_right = 1
     template.extraspace = 1
-    left = 136
-    top = 96
+    left = 64
+    top = 304
   end
   object pieceimages2: timagelist
     versioncount = 2
@@ -885,8 +885,8 @@ object mainfo: tmainfo
     height = 50
     options = [bmo_masked, bmo_graymask]
     count = 6
-    left = 40
-    top = 216
+    left = 64
+    top = 224
     image = {
       00000000120000009600000096000000ECA20000000000000000000000000000
       0000000000000000000000000000000000000000000000FF000000FF000000FF
