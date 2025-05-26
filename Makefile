@@ -1,5 +1,7 @@
 
+ifndef MSEDIR
 MSEDIR := mseide-msegui
+endif
 MSELIBDIR := $(MSEDIR)/lib/common
 
 ifeq ($(OS),Windows_NT)
