@@ -2,7 +2,7 @@ object mainfo: tmainfo
   bounds_x = 67
   bounds_y = 150
   bounds_cx = 478
-  bounds_cy = 543
+  bounds_cy = 558
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.fade_direction = gd_left
@@ -12,7 +12,7 @@ object mainfo: tmainfo
     0
     27
     478
-    516
+    531
   )
   mainmenu = tmainmenu1
   statfile = tstatfile1
@@ -21,7 +21,6 @@ object mainfo: tmainfo
   oncreate = createev
   moduleclassname = 'tmainform'
   object grid: tdrawgrid
-    optionswidget1 = [ow1_fontglyphheight, ow1_autoscale, ow1_autowidth, ow1_autoheight]
     frame.localprops = []
     frame.localprops1 = []
     onpaint = boardpaintev

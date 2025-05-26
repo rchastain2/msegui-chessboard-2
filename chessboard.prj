@@ -701,7 +701,7 @@ findhistory=3
  pieceimage
 findoptions=0
 editpos=1
- 6,446
+ 33,434
 bookmarks0=0
 sourcefiles=1
  /home/roland/Documents/pascal/msegui/projects/chessboard/chessboard-2/main.pas
@@ -976,7 +976,7 @@ windowlayout=568
  [objectinspectorfo]
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_mainfo_mse_
+ stackedunder=mainfo.panel1
  parent=
  mdistate=0
  nx=0
@@ -1060,7 +1060,7 @@ windowlayout=568
  rcx=0
  rcy=0
  [watchfo.grid]
- propcolwidthref=116
+ propcolwidthref=106
  values0=0
  values0_ci=-1
  sortdescend0=0
@@ -1160,7 +1160,7 @@ windowlayout=568
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=mainfo.panel1
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1218,7 +1218,7 @@ windowlayout=568
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=findinfilefo
+ stackedunder=mainfo.panel2
  parent=
  mdistate=3
  nx=0
@@ -1237,7 +1237,7 @@ windowlayout=568
  [mainfo.panel1]
  splitdir=2
  useroptions=302022123
- stackedunder=objectinspectorfo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1251,12 +1251,12 @@ windowlayout=568
  rcx=0
  rcy=0
  wsize=0
- active=0
+ active=1
  visible=1
  [mainfo.panel2]
  splitdir=2
  useroptions=302022123
- stackedunder=
+ stackedunder=findinfilefo
  parent=
  mdistate=0
  nx=0
@@ -1275,7 +1275,7 @@ windowlayout=568
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -1285,11 +1285,11 @@ windowlayout=568
  x=67
  y=150
  cx=488
- cy=543
+ cy=558
  rcx=0
  rcy=0
  wsize=0
- active=1
+ active=0
  visible=1
 [targetconsole]
 finddtext=

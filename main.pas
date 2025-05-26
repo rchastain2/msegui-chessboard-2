@@ -284,7 +284,8 @@ var
 begin
   initboard();
   
-  lpos := grid.paintparentpos;
+  //lpos := grid.paintparentpos;
+  lpos := grid.rootpos;
   lmenuheight := lpos.y;
   tlog.append(Format('INFO [tmainfo.createev] lmenuheight=%d', [lmenuheight]));
 end;
