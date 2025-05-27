@@ -1,8 +1,8 @@
 
 ifndef MSEDIR
-MSEDIR := mseide-msegui
+MSEDIR := mseide-msegui/
 endif
-MSELIBDIR := $(MSEDIR)/lib/common
+MSELIBDIR := $(MSEDIR)lib/common/
 
 ifeq ($(OS),Windows_NT)
 OS := windows
@@ -13,8 +13,8 @@ endif
 PC = fpc
 
 PFLAGS := -Mobjfpc -Sh
-PFLAGS += -Fu$(MSELIBDIR)/*
-PFLAGS += -Fu$(MSELIBDIR)/kernel/$(OS)
+PFLAGS += -Fu$(MSELIBDIR)*
+PFLAGS += -Fu$(MSELIBDIR)kernel/$(OS)
 PFLAGS += -Fulibrary
 PFLAGS += -Fulibrary/chess
 
