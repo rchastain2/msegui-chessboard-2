@@ -6,6 +6,8 @@ interface
 uses
   Main;
 
+procedure CreateGame(AFenStartPosition: string);
+procedure FreeGame;
 function IsMoveLegal(const FromCol: colty; const FromRow: rowty; const ToCol: colty; const ToRow: rowty): boolean;
 procedure DoMove(const FromCol: colty; const FromRow: rowty; const ToCol: colty; const ToRow: rowty);
 function ArbitratorMessage(): string;
@@ -29,6 +31,21 @@ const
 
 var
   LGame: TChessGame;
+
+procedure CreateGame(AFenStartPosition: string);
+begin
+  FreeGame;
+  LGame := TChessGame.Create(AFenStartPosition);
+end;
+
+procedure FreeGame;
+begin
+  if Assigned(LGame) then
+  begin
+    LGame.Free;
+    LGame := nil;
+  end;
+end;
 
 function IsMoveLegal(const FromCol: colty; const FromRow: rowty; const ToCol: colty; const ToRow: rowty): boolean;
 var
@@ -66,10 +83,18 @@ begin
   end;
 end;
 
+(*
 initialization
   LGame := TChessGame.Create(CFenStartPosition);
   
 finalization
   LGame.Free;
-  
+*)
+
+initialization
+  LGame := nil;
+
+finalization
+  FreeGame;
+
 end.

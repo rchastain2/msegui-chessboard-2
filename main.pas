@@ -104,12 +104,12 @@ type
     property cellcolor[const acell: cellty]: piececolorty read getcellcolor write setcellcolor;
     property cellstate[const acell: cellty]: cellstatesty read getcellstate write setcellstate;
   public
-    procedure initboard();
+    procedure initboard(aplacement: string);
   end;
 
 var
   mainfo: tmainfo;
-
+  
 implementation
 
 uses
@@ -117,6 +117,9 @@ uses
   rules,
   log,
   sysutils;
+
+const
+  cstartpos = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
 type
   tpiecedragobject = class(tcelldragobject)
@@ -128,9 +131,6 @@ type
     destructor destroy(); override;
     property boardcell: cellty read fboardcell;
   end;
-
-const
-  pieceorder: array[colty] of piecekindty = (pk_rook, pk_knight, pk_bishop, pk_queen, pk_king, pk_bishop, pk_knight, pk_rook);
 
 function gridcoordtocell(const acoord: gridcoordty): cellty;
 begin
@@ -212,40 +212,93 @@ end;
 
 { tmainfo }
 
-procedure tmainfo.initboard();
+procedure tmainfo.initboard(aplacement: string);
+(*
+const
+  pieceorder: array[colty] of piecekindty = (pk_rook, pk_knight, pk_bishop, pk_queen, pk_king, pk_bishop, pk_knight, pk_rook);
+*)
 var
   c1: colty;
   r1: rowty;
+  i: integer;
+  c: char;
 begin
   fillchar(fboard, sizeof(fboard), 0);
   
+  i := 1;
+  c1 := low(colty);
+  r1 := high(rowty);
+  while i <= length(aplacement) do
+  begin
+    c := aplacement[i];
+    
+    case upcase(c) of
+      'B', 'K', 'N', 'P', 'Q', 'R':
+        begin
+          case c of
+            'B': with fboard.cells[c1, r1] do begin piece := pk_bishop; color := pc_white; end;
+            'K': with fboard.cells[c1, r1] do begin piece := pk_king;   color := pc_white; end;
+            'N': with fboard.cells[c1, r1] do begin piece := pk_knight; color := pc_white; end;
+            'P': with fboard.cells[c1, r1] do begin piece := pk_pawn;   color := pc_white; end;
+            'Q': with fboard.cells[c1, r1] do begin piece := pk_queen;  color := pc_white; end;
+            'R': with fboard.cells[c1, r1] do begin piece := pk_rook;   color := pc_white; end;
+            'b': with fboard.cells[c1, r1] do begin piece := pk_bishop; color := pc_black; end;
+            'k': with fboard.cells[c1, r1] do begin piece := pk_king;   color := pc_black; end;
+            'n': with fboard.cells[c1, r1] do begin piece := pk_knight; color := pc_black; end;
+            'p': with fboard.cells[c1, r1] do begin piece := pk_pawn;   color := pc_black; end;
+            'q': with fboard.cells[c1, r1] do begin piece := pk_queen;  color := pc_black; end;
+            'r': with fboard.cells[c1, r1] do begin piece := pk_rook;   color := pc_black; end;
+          end;
+          if c1 < high(colty) then
+            inc(c1);
+        end;
+      '1', '2', '3', '4', '5', '6', '7', '8':
+        repeat
+          if c1 < high(colty) then
+            inc(c1);
+          dec(c);
+        until c = '0';
+      '/':
+        begin
+          if r1 > low(rowty) then
+            dec(r1);
+          c1 := low(colty);
+        end;
+      else
+        break;
+    end;
+    
+    inc(i);
+  end;
+  
+  (*
   for c1 := low(colty) to high(colty) do
   begin
-  
+    with fboard.cells[c1, row_1] do
+    begin
+      piece := pieceorder[c1];
+      color := pc_white;
+    end;
     with fboard.cells[c1, row_2] do
     begin
       piece := pk_pawn;
       color := pc_white;
     end;
-    
-    with fboard.cells[c1, row_1] do
-    begin
-      color := pc_white;
-      piece := pieceorder[c1];
-    end;
-    
     with fboard.cells[c1, row_7] do
     begin
       piece := pk_pawn;
       color := pc_black;
     end;
-    
     with fboard.cells[c1, row_8] do
     begin
-      color := pc_black;
       piece := pieceorder[c1];
+      color := pc_black;
     end;
-    
+  end;
+  *)
+  
+  for c1 := low(colty) to high(colty) do
+  begin
     if odd(ord(c1)) then
     begin
       for r1 := low(r1) to high(r1) do
@@ -271,7 +324,6 @@ begin
         end;
       end;
     end;
-    
   end;
   
   boardchanged();
@@ -282,9 +334,10 @@ var
   lmenuheight: integer;
   lpos: pointty;
 begin
-  initboard();
+  rules.CreateGame(cstartpos);
+  initboard(cstartpos);
   
-  //lpos := grid.paintparentpos;
+ {lpos := grid.paintparentpos;}
   lpos := grid.rootpos;
   lmenuheight := lpos.y;
   tlog.append(Format('INFO [tmainfo.createev] lmenuheight=%d', [lmenuheight]));
@@ -455,7 +508,8 @@ end;
 
 procedure tmainfo.resetev(const sender: TObject);
 begin
-  initboard();
+  rules.CreateGame(cstartpos);
+  initboard(cstartpos);
 end;
 
 procedure tmainfo.checkdrag(const adragobject: tdragobject; const apos: pointty; var accept: boolean; const amove: boolean);
